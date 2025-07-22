@@ -28,7 +28,7 @@ const registerValidateSchema = Yup.object({
     .min(6, "Password must be at least 6 characters")
     .test(
       "at-least-one-uppercase-letter",
-      "Contains at least one oppercase letter",
+      "Contains at least one uppercase letter",
       (value) => {
         if (!value) return false;
         const regex = /^(?=.*[A-Z])/;
@@ -37,7 +37,7 @@ const registerValidateSchema = Yup.object({
     )
     .test(
       "at-least-one-number",
-      "Contains at least one oppercase letter",
+      "Contains at least one uppercase letter",
       (value) => {
         if (!value) return false;
         const regex = /^(?=.*\d)/;
@@ -127,7 +127,7 @@ export default {
 
       if (!validatePassword) {
         return res.status(403).json({
-          message: "user not found",
+          message: "password is incorrect",
           data: null,
         });
       }
