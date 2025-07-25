@@ -11,7 +11,7 @@ import {
 	EMAIL_SMTP_USER,
 } from "../env";
 
-const tranporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransport({
 	service: EMAIL_SMTP_SERVICE_NAME,
 	host: EMAIL_SMTP_HOST,
 	port: EMAIL_SMTP_PORT,
@@ -31,7 +31,7 @@ export interface ISendMail {
 }
 
 export const sendMail = async ({ ...mailParams }: ISendMail) => {
-	const result = await tranporter.sendMail({
+	const result = await transporter.sendMail({
 		...mailParams,
 	});
 	return result;

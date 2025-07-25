@@ -71,7 +71,7 @@ UserSchema.pre("save", function (next) {
 UserSchema.post("save", async function (doc, next) {
   try {
     const user = doc;
-    console.log("Send Email to: ", user.email);
+    console.log("Send Email to: ", user);
     const contentMail = await renderMailHtml("registration-success.ejs", {
       username: user.username,
       fullName: user.fullName,
@@ -86,7 +86,7 @@ UserSchema.post("save", async function (doc, next) {
       html: contentMail,
     });
   } catch (error) {
-    console.log("error > ", error);
+    console.log(error);
   } finally {
     next();
   }
@@ -95,6 +95,7 @@ UserSchema.post("save", async function (doc, next) {
 UserSchema.methods.toJSON = function () {
   const user = this.toObject();
   delete user.password;
+  delete user.activationCode;
   return user;
 };
 

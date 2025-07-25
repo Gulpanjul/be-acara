@@ -3,8 +3,6 @@ import { getUserData } from "../utils/jwt";
 import { IReqUser } from "../utils/interfaces";
 import response from "../utils/response";
 
-
-
 export default (req: Request, res: Response, next: NextFunction) => {
 	const authorization = req.headers?.authorization;
 
