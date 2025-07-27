@@ -39,7 +39,6 @@ export default {
                 .skip((page - 1) * limit)
                 .sort({ createdAt: -1 })
                 .exec();
-
             const count = await TicketModel.countDocuments(query);
 
             response.pagination(
@@ -59,19 +58,34 @@ export default {
     async findOne(req: IReqUser, res: Response) {
         try {
             const { id } = req.params;
+
+            if (!isValidObjectId(id)) {
+                return response.notFound(res, "failed find one a ticket");
+            }
+
             const result = await TicketModel.findById(id);
-            response.success(res, result, "success find one ticket");
+
+            if (!result) {
+                return response.notFound(res, "failed find one a ticket");
+            }
+
+            response.success(res, result, "success find one a ticket");
         } catch (error) {
-            response.error(res, error, "failed to find one ticket");
+            response.error(res, error, "failed to find one a ticket");
         }
     },
     async update(req: IReqUser, res: Response) {
         try {
             const { id } = req.params;
+
+            if (!isValidObjectId(id)) {
+                return response.notFound(res, "failed update a ticket");
+            }
+
             const result = await TicketModel.findByIdAndUpdate(id, req.body, {
                 new: true,
             });
-            response.success(res, result, "success update ticket");
+            response.success(res, result, "success update a ticket");
         } catch (error) {
             response.error(res, error, "failed to update ticket");
         }
@@ -79,6 +93,11 @@ export default {
     async remove(req: IReqUser, res: Response) {
         try {
             const { id } = req.params;
+
+            if (!isValidObjectId(id)) {
+                return response.notFound(res, "failed remove a ticket");
+            }
+
             const result = await TicketModel.findByIdAndDelete(id, {
                 new: true,
             });
@@ -96,7 +115,11 @@ export default {
             }
 
             const result = await TicketModel.find({ events: eventId }).exec();
-            response.success(res, result, "success find all tickets by an event");
+            response.success(
+                res,
+                result,
+                "success find all tickets by an event"
+            );
         } catch (error) {
             response.error(res, error, "failed to find all ticket by event");
         }
