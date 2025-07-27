@@ -32,12 +32,12 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#components/schemas/RegisterRequest"
+                "$ref": "#/components/schemas/RegisterRequest"
               }
             },
             "application/xml": {
               "schema": {
-                "$ref": "#components/schemas/RegisterRequest"
+                "$ref": "#/components/schemas/RegisterRequest"
               }
             }
           }
@@ -278,7 +278,7 @@
     "/events": {
       "post": {
         "tags": [
-          "Event"
+          "Events"
         ],
         "description": "",
         "responses": {
@@ -309,7 +309,7 @@
       },
       "get": {
         "tags": [
-          "Event"
+          "Events"
         ],
         "description": "",
         "parameters": [
@@ -345,7 +345,7 @@
     "/events/{id}": {
       "get": {
         "tags": [
-          "Event"
+          "Events"
         ],
         "description": "",
         "parameters": [
@@ -366,7 +366,7 @@
       },
       "put": {
         "tags": [
-          "Event"
+          "Events"
         ],
         "description": "",
         "parameters": [
@@ -407,7 +407,7 @@
       },
       "delete": {
         "tags": [
-          "Event"
+          "Events"
         ],
         "description": "",
         "parameters": [
@@ -435,7 +435,7 @@
     "/events/{slug}/slug": {
       "get": {
         "tags": [
-          "Event"
+          "Events"
         ],
         "description": "",
         "parameters": [
@@ -704,7 +704,7 @@
           },
           "password": {
             "type": "string",
-            "example": "123456"
+            "example": "12341234"
           }
         },
         "xml": {
@@ -814,6 +814,10 @@
                 "items": {
                   "type": "number"
                 }
+              },
+              "address": {
+                "type": "string",
+                "example": ""
               }
             }
           },
@@ -822,6 +826,10 @@
             "example": false
           },
           "isFeatured": {
+            "type": "boolean",
+            "example": false
+          },
+          "isPublish": {
             "type": "boolean",
             "example": false
           }
