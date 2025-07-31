@@ -90,10 +90,14 @@ export default {
 
       response.success(res, result, "success to find one an order");
     } catch (error) {
-      response.error(res, error, "failed to find one order");
+      response.error(res, error, "failed to find one an order");
     }
   },
-  async findAllByMember(req: IReqUser, res: Response) {},
+
+  async findAllByMember(req: IReqUser, res: Response) {
+    try {
+    } catch (error) {}
+  },
 
   async complete(req: IReqUser, res: Response) {
     try {
@@ -161,6 +165,28 @@ export default {
     try {
     } catch (error) {
       response.error(res, error, "failed to cancelled an order");
+    }
+  },
+
+  async remove(req: IReqUser, res: Response) {
+    try {
+      const { orderId } = req.params;
+      const result = await OrderModel.findOneAndDelete(
+        {
+          orderId,
+        },
+        {
+          new: true,
+        }
+      );
+
+      if (!result) {
+        return response.notFound(res, "order not found");
+      }
+
+      response.success(res, result, "success to remove an order");
+    } catch (error) {
+      response.error(res, error, "failed to remove an order");
     }
   },
 };
