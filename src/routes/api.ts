@@ -26,7 +26,7 @@ router.post(
   /*
   #swagger.tags = ['Order']
   #swagger.security = [{
-    "bearerAuth": []
+    "bearerAuth": ""
   }]
   #swagger.requestBody = {
     required: true, 
@@ -43,7 +43,7 @@ router.get(
   /*
   #swagger.tags = ['Order']
   #swagger.security = [{
-    "bearerAuth": []
+    "bearerAuth": ""
   }]
   */
 );
@@ -54,7 +54,7 @@ router.get(
   /*
   #swagger.tags = ['Order']
   #swagger.security = [{
-    "bearerAuth": []
+    "bearerAuth": ""
   }]
   */
 );
@@ -65,7 +65,7 @@ router.put(
   /*
   #swagger.tags = ['Order']
   #swagger.security = [{
-    "bearerAuth": []
+    "bearerAuth": ""
   }]
   */
 );
@@ -76,7 +76,7 @@ router.put(
   /*
   #swagger.tags = ['Order']
   #swagger.security = [{
-    "bearerAuth": []
+    "bearerAuth": ""
   }]
   */
 );
@@ -87,10 +87,11 @@ router.put(
   /*
   #swagger.tags = ['Order']
   #swagger.security = [{
-    "bearerAuth": []
+    "bearerAuth": ""
   }]
   */
 );
+
 router.get(
   "/orders-history",
   [authMiddleware, aclMiddleware([ROLES.MEMBER])],
@@ -98,10 +99,11 @@ router.get(
   /*
   #swagger.tags = ['Order']
   #swagger.security = [{
-    "bearerAuth": []
+    "bearerAuth": ""
   }]
   */
 );
+
 router.delete(
   "/orders/:orderId",
   [authMiddleware, aclMiddleware([ROLES.ADMIN])],
@@ -109,7 +111,7 @@ router.delete(
   /*
   #swagger.tags = ['Order']
   #swagger.security = [{
-    "bearerAuth": []
+    "bearerAuth": ""
   }]
   */
 );
@@ -121,7 +123,7 @@ router.post(
   /*
   #swagger.tags = ['Banners']
   #swagger.security = [{
-    "bearerAuth": []
+    "bearerAuth": {}
   }]
   #swagger.requestBody = {
     required: true, 
@@ -152,7 +154,7 @@ router.put(
   /*
   #swagger.tags = ['Banners']
   #swagger.security = [{
-    "bearerAuth": []
+    "bearerAuth": {}
   }]
   #swagger.requestBody = {
     required: true, 
@@ -169,7 +171,7 @@ router.delete(
   /*
     #swagger.tags = ['Banners']
     #swagger.security = [{
-      "bearerAuth": []
+      "bearerAuth": {}
     }]
     */
 );

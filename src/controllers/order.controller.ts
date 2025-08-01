@@ -2,7 +2,7 @@ import { Response } from "express";
 import { IReqUser } from "../utils/interfaces";
 import response from "../utils/response";
 import OrderModel, {
-  orderDAO,
+  orderDTO,
   OrderStatus,
   TypeOrder,
   TypeVoucher,
@@ -19,7 +19,7 @@ export default {
         ...req.body,
         createdBy: userId,
       } as TypeOrder;
-      await orderDAO.validate(payload);
+      await orderDTO.validate(payload);
 
       const ticket = await TicketModel.findById(payload.ticket);
       if (!ticket) return response.notFound(res, "ticket not found");
@@ -216,9 +216,7 @@ export default {
       }
 
       const result = await OrderModel.findOneAndUpdate(
-        {
-          orderId,
-        },
+        { orderId },
         {
           status: OrderStatus.PENDING,
         },
@@ -255,9 +253,7 @@ export default {
       }
 
       const result = await OrderModel.findOneAndUpdate(
-        {
-          orderId,
-        },
+        { orderId },
         {
           status: OrderStatus.CANCELLED,
         },
@@ -271,6 +267,7 @@ export default {
       response.error(res, error, "failed to cancelled an order");
     }
   },
+
   async remove(req: IReqUser, res: Response) {
     try {
       const { orderId } = req.params;
