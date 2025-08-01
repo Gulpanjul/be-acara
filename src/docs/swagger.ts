@@ -38,6 +38,15 @@ const doc = {
       ActivationRequest: {
         code: "abcdef",
       },
+      UpdateProfileRequest: {
+        fullName: "Admin",
+        profilePicture: "fileUrl",
+      },
+      UpdatePasswordRequest: {
+        oldPassword: "123456",
+        password: "123456",
+        confirmPassword: "123456",
+      },
       CreateCategoryRequest: {
         name: "",
         description: "",

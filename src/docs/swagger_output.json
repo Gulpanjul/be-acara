@@ -85,7 +85,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": ""
           }
         ]
       }
@@ -118,6 +118,72 @@
         }
       }
     },
+    "/auth/update-profile": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": ""
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProfileRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateProfileRequest"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/update-password": {
+      "put": {
+        "tags": [
+          "Auth"
+        ],
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": ""
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePasswordRequest"
+              }
+            },
+            "application/xml": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePasswordRequest"
+              }
+            }
+          }
+        }
+      }
+    },
     "/orders": {
       "post": {
         "tags": [
@@ -131,7 +197,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": ""
           }
         ],
         "requestBody": {
@@ -185,7 +251,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": ""
           }
         ]
       }
@@ -213,7 +279,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": ""
           }
         ]
       },
@@ -239,7 +305,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": ""
           }
         ]
       }
@@ -267,7 +333,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": ""
           }
         ]
       }
@@ -295,7 +361,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": ""
           }
         ]
       }
@@ -323,7 +389,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": ""
           }
         ]
       }
@@ -364,7 +430,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": ""
           }
         ]
       }
@@ -382,7 +448,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": {}
           }
         ],
         "requestBody": {
@@ -480,7 +546,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": {}
           }
         ],
         "requestBody": {
@@ -521,7 +587,7 @@
         },
         "security": [
           {
-            "bearerAuth": []
+            "bearerAuth": {}
           }
         ]
       }
@@ -1367,6 +1433,42 @@
         },
         "xml": {
           "name": "ActivationRequest"
+        }
+      },
+      "UpdateProfileRequest": {
+        "type": "object",
+        "properties": {
+          "fullName": {
+            "type": "string",
+            "example": "Admin"
+          },
+          "profilePicture": {
+            "type": "string",
+            "example": "fileUrl"
+          }
+        },
+        "xml": {
+          "name": "UpdateProfileRequest"
+        }
+      },
+      "UpdatePasswordRequest": {
+        "type": "object",
+        "properties": {
+          "oldPassword": {
+            "type": "string",
+            "example": "123456"
+          },
+          "password": {
+            "type": "string",
+            "example": "123456"
+          },
+          "confirmPassword": {
+            "type": "string",
+            "example": "123456"
+          }
+        },
+        "xml": {
+          "name": "UpdatePasswordRequest"
         }
       },
       "CreateCategoryRequest": {
