@@ -28,7 +28,7 @@ export default {
                 },
             }
         );
-        if (result.status != 201) {
+        if (result.status !== 201) {
             throw new Error("payment failed");
         }
         return result?.data;

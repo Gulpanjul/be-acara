@@ -8,10 +8,7 @@ import uploader from "../utils/uploader";
 export default {
   async create(req: IReqUser, res: Response) {
     try {
-      const payload = {
-        ...req.body,
-        createdBy: req.user?.id,
-      } as TypeEvent;
+      const payload = { ...req.body, createdBy: req.user?.id } as TypeEvent;
       await eventDTO.validate(payload);
       const result = await EventModel.create(payload);
       response.success(res, result, "success create an event");
@@ -46,9 +43,9 @@ export default {
       const query = buildQuery({
         search,
         category,
-        isOnline,
-        isFeatured,
         isPublish,
+        isFeatured,
+        isOnline,
       });
 
       const result = await EventModel.find(query)
@@ -137,5 +134,3 @@ export default {
     }
   },
 };
-
-//0204

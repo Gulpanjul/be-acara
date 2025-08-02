@@ -58,18 +58,7 @@ export interface User extends Omit<TypeUser, "confirmPassword"> {
   isActive: boolean;
   activationCode: string;
   role: string;
-  createdAt?: string;
-}
-
-export interface User {
-  fullName: string;
-  username: string;
-  email: string;
-  password: string;
-  role: string;
   profilePicture: string;
-  isActive: boolean;
-  activationCode: string;
   createdAt?: string;
 }
 

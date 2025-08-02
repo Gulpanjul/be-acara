@@ -47,7 +47,8 @@ export default {
 
       const user = await UserModel.findById(userId);
 
-      if (!user || user.password !== encrypt(oldPassword)) return response.notFound(res, "user not found");
+      if (!user || user.password !== encrypt(oldPassword))
+        return response.notFound(res, "user not found");
 
       const result = await UserModel.findByIdAndUpdate(
         userId,
@@ -64,6 +65,7 @@ export default {
       response.error(res, error, "failed to update password");
     }
   },
+
   async register(req: Request, res: Response) {
     const { fullName, username, email, password, confirmPassword } = req.body;
 
@@ -117,7 +119,7 @@ export default {
         encrypt(password) === userByIdentifier.password;
 
       if (!validatePassword) {
-        return response.unauthorized(res, "wrong password");
+        return response.unauthorized(res, "user not found");
       }
 
       const token = generateToken({

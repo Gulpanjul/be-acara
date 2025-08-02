@@ -47,7 +47,7 @@ router.get(
   /*
   #swagger.tags = ['Auth']
   #swagger.security = [{
-    "bearerAuth": ""
+    "bearerAuth": {}
   }]
   */
 );
@@ -72,7 +72,7 @@ router.put(
   /*
   #swagger.tags = ['Auth']
   #swagger.security = [{
-    "bearerAuth": ""
+    "bearerAuth": {}
   }]
   #swagger.requestBody = {
     required: true, 
@@ -89,7 +89,7 @@ router.put(
   /*
   #swagger.tags = ['Auth']
   #swagger.security = [{
-    "bearerAuth": ""
+    "bearerAuth": {}
   }]
   #swagger.requestBody = {
     required: true, 
